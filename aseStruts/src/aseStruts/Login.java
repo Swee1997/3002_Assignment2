@@ -19,14 +19,17 @@ public class Login {
  
         ResultSet result = statement.executeQuery();
  
+        User user = null;
  
         if (result.next()) {
-        	if(getName().equals(result.getString("username")) && getPassword().equals(result.getString("password"))) {
+        	user = new User(result.getString("username"), result.getString("password"));
+        	if (user.verify(name, password)) {
         		return "success";
         	}
         	else {
         		return "error";
         	}
+
         }
  
         connection.close();

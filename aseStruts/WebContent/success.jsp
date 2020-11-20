@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello World Example</title>
+    <title>Success page</title>
 </head>
 <body>
     Hello <s:property value="name"/>!

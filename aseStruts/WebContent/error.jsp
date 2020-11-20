@@ -5,7 +5,7 @@
 <head>
 <!-- <meta charset="ISO-8859-1"> -->
 <meta http-equiv="refresh" content="3;url=index.jsp" />
-<title>Insert title here</title>
+<title>Error page</title>
 </head>
 <body>
 Error! Invalid username or password :)<br>

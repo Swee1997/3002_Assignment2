@@ -1,40 +1,21 @@
 package aseStruts;
-import java.sql.*;
 
+import java.sql.*;
 public class Login {
     private String name;
     private String password;
     
+    // Check verification result
     public String execute() throws Exception {
-        String jdbcURL = "jdbc:mysql://localhost:3306/UserDatabase";
-        String dbUser = "root";
-        String dbPassword = "";
- 
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
-        String sql = "SELECT * FROM users WHERE username = ? and password = ?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, name);
-        statement.setString(2, password);
- 
-        ResultSet result = statement.executeQuery();
- 
-        User user = null;
- 
-        if (result.next()) {
-        	user = new User(result.getString("username"), result.getString("password"));
-        	if (user.verify(name, password)) {
-        		return "success";
-        	}
-        	else {
-        		return "error";
-        	}
-
+        User user = new User(name, password);
+        if(user.getInDatabase())
+        {
+        	return "success";
         }
- 
-        connection.close();
-
-        return "error";
+        else
+        {
+        	return "error";
+        }
     }
  
     public String getName() {

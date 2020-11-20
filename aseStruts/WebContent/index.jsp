@@ -7,7 +7,7 @@
 <title>Assignment 2</title>
 </head>
 <body>
-    <h1>Hello World Example</h1>
+    <h1>CZ3002 Assignment MVC Login</h1>
     <form action="hello">
         <label for="name">Enter your name</label><br/>
         <input type="text" name="name"/><br>
